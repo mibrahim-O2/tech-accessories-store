@@ -1,0 +1,666 @@
+/* =====================================================================
+   VoltEdge — style.css
+   ---------------------------------------------------------------------
+   The single stylesheet for every page of the VoltEdge Tech Accessories
+   Store (class assignment front-end). It holds:
+     1. Design tokens (CSS variables: colors, spacing, radius, shadows)
+     2. Reset & base styles (body, headings, links, images)
+     3. Layout helpers (container, sections, grids)
+     4. Components (buttons, cards, badges, tables)
+     5. Shared header / navigation
+     6. Shared footer
+     7. Placeholder blocks (used until each phase fills a page)
+     8. Responsive rules (tablet & mobile)
+   Color rule: NO blue, pink or purple anywhere — only the palette below.
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   1. DESIGN TOKENS
+   All colors and sizes live here so the whole site stays consistent.
+   --------------------------------------------------------------------- */
+:root {
+  /* Brand palette (from the assignment brief) */
+  --bg: #FAF7F2;            /* warm cream page background */
+  --surface: #FFFFFF;       /* cards, header, tables */
+  --ink: #1C1917;           /* main text — warm charcoal */
+  --muted: #78716C;         /* secondary text */
+  --primary: #15803D;       /* forest green — main brand color */
+  --primary-dark: #14532D;  /* darker green for hover / footer */
+  --accent: #F59E0B;        /* amber — highlights, badges, prices */
+
+  /* Supporting tints derived from the palette */
+  --primary-soft: #E7F3EA;  /* very light green background */
+  --accent-soft: #FEF3DC;   /* very light amber background */
+  --border: #E7E2DA;        /* warm light border */
+
+  /* Typography */
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing scale (generous, based on 8px) */
+  --space-1: 0.5rem;   /*  8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 3rem;     /* 48px */
+  --space-6: 4.5rem;   /* 72px */
+
+  /* Shape & depth */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.06);
+  --shadow: 0 4px 16px rgba(28, 25, 23, 0.08);
+  --shadow-lg: 0 12px 32px rgba(28, 25, 23, 0.12);
+
+  /* Layout */
+  --container: 1140px;
+  --header-h: 68px;
+}
+
+
+/* ---------------------------------------------------------------------
+   2. RESET & BASE STYLES
+   --------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  /* Footer always sits at the bottom, even on short pages */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 var(--space-2);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: 1.2rem; }
+
+p {
+  margin: 0 0 var(--space-2);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Visible keyboard focus everywhere (accessibility) */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Small grey helper text */
+.muted {
+  color: var(--muted);
+}
+
+
+/* ---------------------------------------------------------------------
+   3. LAYOUT HELPERS
+   --------------------------------------------------------------------- */
+
+/* Centered page-width wrapper */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+/* Vertical rhythm for page sections */
+.section {
+  padding: var(--space-6) 0;
+}
+
+/* Section title + subtitle block */
+.section-head {
+  margin-bottom: var(--space-4);
+}
+
+.section-head p {
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+/* Small uppercase label above headings */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  margin-bottom: var(--space-1);
+}
+
+/* Responsive auto-fit grid (cards, badges, products) */
+.grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+
+/* ---------------------------------------------------------------------
+   4. COMPONENTS
+   --------------------------------------------------------------------- */
+
+/* ---- 4a. Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Main call-to-action: forest green */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+/* Secondary: outlined green */
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+}
+
+/* Attention button: amber */
+.btn-accent {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.btn-accent:hover {
+  background: #D97706; /* darker amber */
+  color: var(--ink);
+}
+
+/* Full-width button (e.g. inside product cards) */
+.btn-block {
+  width: 100%;
+}
+
+/* ---- 4b. Cards ---- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-3);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* Cards that lift slightly on hover */
+.card-hover:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  margin-bottom: var(--space-1);
+}
+
+/* ---- 4c. Badges / pills ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+}
+
+.badge-accent {
+  background: var(--accent-soft);
+  color: #92400E; /* deep amber text, readable on light amber */
+}
+
+/* Price text style (used everywhere a PKR price appears) */
+.price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* ---- 4d. Tables (business plan & keyword planner) ---- */
+.table-wrap {
+  overflow-x: auto;              /* scroll sideways on small phones */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+th {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: #FDFBF7;
+}
+
+
+/* ---------------------------------------------------------------------
+   5. SHARED HEADER / NAVIGATION
+   Markup is injected by js/main.js into <header id="site-header">.
+   --------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: var(--header-h);
+}
+
+/* Logo: lightning mark + store name */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.logo-text span {
+  color: var(--primary);
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+/* Current page link (set by main.js) */
+.nav-links a.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Right side of the header: cart + mobile menu button */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Cart button with item counter bubble */
+.cart-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.cart-btn:hover {
+  text-decoration: none;
+  color: var(--ink);
+  background: #FDE7B5;
+}
+
+.cart-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Short "bump" animation when an item is added (used in Phase 3) */
+.cart-count.bump {
+  animation: bump 0.35s ease;
+}
+
+@keyframes bump {
+  50% { transform: scale(1.35); }
+}
+
+/* Hamburger button — only visible on mobile */
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+
+/* ---------------------------------------------------------------------
+   6. SHARED FOOTER
+   Markup is injected by js/main.js into <footer id="site-footer">.
+   --------------------------------------------------------------------- */
+.site-footer {
+  background: var(--ink);
+  color: #D6D3D1;
+  padding: var(--space-5) 0 var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.footer-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.site-footer .logo,
+.site-footer .logo:hover {
+  color: #fff;
+}
+
+.site-footer h4 {
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: var(--space-2);
+}
+
+.site-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer li {
+  margin-bottom: 0.4rem;
+}
+
+.site-footer a {
+  color: #D6D3D1;
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+.footer-tagline {
+  margin-top: var(--space-2);
+  max-width: 34ch;
+  color: #A8A29E;
+}
+
+.footer-bottom {
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid #44403C;
+  font-size: 0.85rem;
+  color: #A8A29E;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-1);
+}
+
+
+/* ---------------------------------------------------------------------
+   7. PLACEHOLDER BLOCKS
+   Temporary "coming in Phase X" panels so each page shows the shared
+   layout before its real content is built.
+   --------------------------------------------------------------------- */
+.page-hero {
+  padding: var(--space-5) 0 var(--space-3);
+}
+
+.page-hero p {
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.placeholder {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-5) var(--space-3);
+  text-align: center;
+  color: var(--muted);
+  background: var(--surface);
+}
+
+/* Small swatch row used on the design-system preview */
+.swatches {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.swatch {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 0.8rem;
+}
+
+.swatch-color {
+  height: 64px;
+}
+
+.swatch-label {
+  padding: 0.5rem 0.75rem;
+}
+
+.swatch-label code {
+  color: var(--muted);
+}
+
+/* Row of example buttons / badges */
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+
+/* ---------------------------------------------------------------------
+   8. RESPONSIVE RULES
+   --------------------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile: collapse nav into a dropdown menu */
+@media (max-width: 720px) {
+  .container {
+    padding: 0 var(--space-2);
+  }
+
+  .section {
+    padding: var(--space-5) 0;
+  }
+
+  .menu-toggle {
+    display: inline-grid;
+    place-items: center;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space-2);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  /* main.js toggles this class when the hamburger is tapped */
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 0.75rem 1rem;
+  }
+
+  /* Hide the word "Cart" on small screens, keep icon + count */
+  .cart-label {
+    display: none;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

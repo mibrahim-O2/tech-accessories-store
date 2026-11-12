@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+  =====================================================================
+  VoltEdge — catalog.html (Product catalog)
+  ---------------------------------------------------------------------
+  Shows all four products as a grid rendered from js/products.js, with
+  price, "Add to cart" and a "products worth" (cost / price / margin)
+  line per card. Built in Phase 3 — Phase 1 is a placeholder.
+  The header and footer are injected by js/main.js.
+  =====================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalog — VoltEdge</title>
+  <meta name="description" content="Browse VoltEdge tech accessories: wireless earbuds, phone covers, 20W chargers and laptop stands, priced in PKR." />
+
+  <!-- Inter font (falls back to the system font stack if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Shared header/nav (filled by main.js) -->
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Page intro -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Shop</span>
+        <h1>Product catalog</h1>
+        <p>All VoltEdge accessories, priced in PKR.</p>
+      </div>
+    </section>
+
+    <!-- Product grid (Phase 3) -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="placeholder">Product grid coming in Phase 3.</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared footer (filled by main.js) -->
+  <footer id="site-footer"></footer>
+
+  <!-- Scripts: product data first, then shared behaviour -->
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
