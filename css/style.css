@@ -9,11 +9,12 @@
      4. Components (icons, buttons, cards, badges, price, tables)
      5. Shared header (logo, nav, cart button, mini-cart)
      6. Shared footer
-     7. Page intro & placeholder blocks
+     7. Page intro
      8. Home page (hero, trust badges, featured strip, student banner)
      9. Catalog page (filter bar, product cards, "Products worth")
     10. Business plan page (sections, table, CSS bar chart, loop)
-    11. Responsive rules (tablet & phone)
+    11. Keyword planner page (notice, keyword table, audience summary)
+    12. Responsive rules (tablet & phone)
    Rules: NO blue, pink or purple; NO emoji (icons come from js/icons.js);
    one border radius per component type; subtle shadows; flat colors.
    ===================================================================== */
@@ -179,6 +180,30 @@ button {
 
 .section-tight-top {
   padding-top: 0;
+}
+
+/* Featured strip sits close under the trust badges */
+.section-featured {
+  padding-top: var(--space-3);
+}
+
+/* "Skip to content" link: hidden until it gets keyboard focus */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: var(--space-2);
+  z-index: 100;
+  padding: 8px 16px;
+  border-radius: var(--radius-btn);
+  background: var(--primary);
+  color: var(--bg);
+  font-weight: 600;
+  transition: top var(--ease);
+}
+
+.skip-link:focus {
+  top: var(--space-1);
+  color: var(--bg);
 }
 
 /* Section title block */
@@ -825,7 +850,7 @@ tbody tr:last-child td {
 
 
 /* ---------------------------------------------------------------------
-   7. PAGE INTRO & PLACEHOLDER BLOCKS
+   7. PAGE INTRO
    --------------------------------------------------------------------- */
 .page-hero {
   padding: var(--space-5) 0 var(--space-4);
@@ -835,16 +860,6 @@ tbody tr:last-child td {
   color: var(--muted);
   max-width: 60ch;
   margin: 0;
-}
-
-/* Temporary "coming in Phase X" panel */
-.placeholder {
-  border: 2px dashed var(--border);
-  border-radius: var(--radius-card);
-  padding: var(--space-5) var(--space-3);
-  text-align: center;
-  color: var(--muted);
-  background: var(--surface);
 }
 
 
@@ -1755,7 +1770,230 @@ tbody tr:last-child td {
 
 
 /* ---------------------------------------------------------------------
-   11. RESPONSIVE RULES
+   11. KEYWORD PLANNER PAGE (keywords.html)
+   --------------------------------------------------------------------- */
+
+/* ---- 11a. "Replace with my real data" notice ---- */
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--accent);
+  border-left-width: 4px;
+  border-radius: var(--radius-card);
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.notice[hidden] {
+  display: none;
+}
+
+.notice [data-icon] {
+  color: var(--accent-ink);
+  margin-top: 2px;
+}
+
+.notice p {
+  margin: 0;
+  font-size: 0.925rem;
+}
+
+/* ---- 11b. Keyword table ---- */
+.keyword-table .num {
+  text-align: right;
+}
+
+.keyword-cell {
+  white-space: normal;
+}
+
+.keyword {
+  display: block;
+  font-weight: 600;
+}
+
+/* Small link to the matching product */
+.keyword-product {
+  font-size: 0.8rem;
+  margin-right: var(--space-1);
+}
+
+/* Rows that still hold sample numbers: dashed amber edge + label */
+.keyword-table tr.is-sample td:first-child {
+  box-shadow: inset 4px 0 0 var(--accent);
+}
+
+.sample-tag {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius-btn);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Competition badge: word + color, never color alone */
+.comp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-btn);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Small dot before the word */
+.comp::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-icon);
+  background: currentColor;
+}
+
+.comp-low {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+}
+
+.comp-medium {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.comp-high {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.table-note {
+  margin: var(--space-1) 0 var(--space-5);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ---- 11c. Audience summary + how-to ---- */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.audience-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.audience-head h2 {
+  font-size: 1.35rem;
+  margin-bottom: 4px;
+}
+
+.audience-head p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Label / text rows inside the summary box */
+.audience-list {
+  margin: 0 0 var(--space-3);
+}
+
+.audience-list div {
+  display: grid;
+  grid-template-columns: 136px 1fr;
+  gap: var(--space-2);
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.audience-list dt {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 600;
+  color: var(--primary-dark);
+  align-self: start;
+}
+
+.audience-list dd {
+  margin: 0;
+  font-size: 0.925rem;
+}
+
+/* Green takeaway strip at the bottom of the box */
+.audience-takeaway {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: var(--space-2);
+  border-radius: var(--radius-tile);
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+}
+
+.audience-takeaway [data-icon] {
+  margin-top: 3px;
+}
+
+.audience-takeaway p {
+  margin: 0;
+  font-size: 0.925rem;
+  color: var(--ink);
+}
+
+/* Numbered how-to steps */
+.howto-steps {
+  counter-reset: step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.howto-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 var(--space-2) 44px;
+  font-size: 0.925rem;
+}
+
+.howto-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-icon);
+  background: var(--primary);
+  color: var(--bg);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.howto code {
+  font-size: 0.85rem;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+
+/* ---------------------------------------------------------------------
+   12. RESPONSIVE RULES
    --------------------------------------------------------------------- */
 
 /* Tablet and small laptop */
@@ -1780,6 +2018,11 @@ tbody tr:last-child td {
 
   .loop li::after {
     display: none;
+  }
+
+  /* Keyword page: summary and how-to stack */
+  .keyword-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1991,44 +2234,62 @@ tbody tr:last-child td {
     color: var(--muted);
   }
 
-  /* Products worth table: each row becomes a small stacked card */
-  .worth-table thead {
+  /* Data tables (.stack-table): each row becomes a small stacked card */
+  .stack-table thead {
     display: none;
   }
 
-  .worth-table,
-  .worth-table tbody,
-  .worth-table tr,
-  .worth-table td {
+  .stack-table,
+  .stack-table tbody,
+  .stack-table tr,
+  .stack-table td {
     display: block;
     width: 100%;
   }
 
-  .worth-table tbody tr {
+  .stack-table tbody tr {
     padding: 12px var(--space-2);
     border-bottom: 1px solid var(--border);
   }
 
-  .worth-table td {
+  .stack-table td {
     padding: 4px 0;
     border: none;
   }
 
   /* Product name row on top, then label: value rows */
-  .worth-table td[data-label] {
+  .stack-table td[data-label] {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.9rem;
   }
 
-  .worth-table td[data-label]::before {
+  .stack-table td[data-label]::before {
     content: attr(data-label);
     color: var(--muted);
   }
 
-  .worth-table td:first-child {
+  .stack-table td:first-child {
     padding-bottom: var(--space-1);
+  }
+
+  /* Keyword table on phones */
+  .keyword-table tr.is-sample td:first-child {
+    box-shadow: none;
+  }
+
+  .keyword-table tr.is-sample {
+    box-shadow: inset 4px 0 0 var(--accent);
+  }
+
+  .audience-list div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .notice {
+    padding: var(--space-2);
   }
 
   .table-margin-bar {
@@ -2036,13 +2297,13 @@ tbody tr:last-child td {
   }
 
   /* Average row: label left, value right */
-  .worth-table tfoot tr {
+  .stack-table tfoot tr {
     display: flex;
     justify-content: space-between;
     background: var(--bg);
   }
 
-  .worth-table tfoot td {
+  .stack-table tfoot td {
     display: block;
     width: auto;
     padding: 12px var(--space-2);

@@ -76,6 +76,8 @@ function renderHeader() {
 
   header.className = "site-header";
   header.innerHTML =
+    // Keyboard users can jump past the nav straight to the page content
+    '<a class="skip-link" href="#main">Skip to content</a>' +
     '<nav class="container nav" aria-label="Main navigation">' +
       '<a class="logo" href="index.html" aria-label="' + STORE.name + ' home">' +
         logoSVG("dark") +
@@ -326,7 +328,8 @@ function renderMiniCart(cart) {
     const qty = c[id];
     html +=
       '<li class="mini-cart-item">' +
-        '<img src="' + p.image + '" alt="' + p.alt + '" width="56" height="56" />' +
+        // Empty alt: the product name is written right next to the thumbnail
+        '<img src="' + p.image + '" alt="" width="56" height="56" />' +
         "<div>" +
           '<div class="mini-cart-name">' + p.name + "</div>" +
           '<div class="qty">' +
