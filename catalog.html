@@ -3,18 +3,24 @@
   =====================================================================
   VoltEdge — catalog.html (Product catalog)
   ---------------------------------------------------------------------
-  Shows all four products as a grid rendered from js/products.js, with
-  price, "Add to cart" and a "products worth" (cost / price / margin)
-  line per card. Built in Phase 3 — Phase 1 is a placeholder.
-  The header and footer are injected by js/main.js.
+  Grid of all four products, rendered by js/catalog.js from
+  js/products.js. Each card shows the image, category, name,
+  description, PKR price, a "Products worth" block (cost, price,
+  profit, margin) and an "Add to cart" button that updates the header
+  cart counter. A filter bar narrows the grid by category.
+  Each card has an id (e.g. #earbuds) so home-page links land on it.
+  Header, footer and icons (<span data-icon>) are filled by js/main.js.
   =====================================================================
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catalog — VoltEdge</title>
+  <title>Catalog | VoltEdge</title>
   <meta name="description" content="Browse VoltEdge tech accessories: wireless earbuds, phone covers, 20W chargers and laptop stands, priced in PKR." />
+
+  <!-- Favicon: the VoltEdge logo mark -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 
   <!-- Inter font (falls back to the system font stack if offline) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,17 +38,27 @@
   <main>
     <!-- Page intro -->
     <section class="page-hero">
-      <div class="container">
-        <span class="eyebrow">Shop</span>
-        <h1>Product catalog</h1>
-        <p>All VoltEdge accessories, priced in PKR.</p>
+      <div class="container heading-with-icon">
+        <span class="icon-circle icon-circle-lg"><span data-icon="tag" data-size="26"></span></span>
+        <div>
+          <span class="eyebrow">Shop</span>
+          <h1>Product catalog</h1>
+          <p>Every VoltEdge accessory with its price in PKR. Free delivery,
+            1-year warranty and cash on delivery on all items.</p>
+        </div>
       </div>
     </section>
 
-    <!-- Product grid (Phase 3) -->
-    <section class="section" style="padding-top: 0;">
+    <section class="section section-tight-top">
       <div class="container">
-        <div class="placeholder">Product grid coming in Phase 3.</div>
+        <!-- Filter bar: chips built by catalog.js from CATEGORIES -->
+        <div class="filter-bar">
+          <div class="filter-chips" id="filter-chips" role="group" aria-label="Filter by category"></div>
+          <p class="filter-count" id="filter-count" aria-live="polite"></p>
+        </div>
+
+        <!-- Product grid: cards built by catalog.js from PRODUCTS -->
+        <div class="catalog-grid" id="catalog-grid"></div>
       </div>
     </section>
   </main>
@@ -50,8 +66,10 @@
   <!-- Shared footer (filled by main.js) -->
   <footer id="site-footer"></footer>
 
-  <!-- Scripts: product data first, then shared behaviour -->
+  <!-- Scripts: icons, product data, shared behaviour, then catalog page -->
+  <script src="js/icons.js"></script>
   <script src="js/products.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/catalog.js"></script>
 </body>
 </html>

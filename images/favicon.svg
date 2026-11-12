@@ -1,0 +1,10 @@
+<!--
+  VoltEdge — favicon.svg
+  Browser-tab icon: the logo mark only (green rounded square, cream
+  lightning bolt, amber accent dot). Linked from every page's <head>.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <rect x="0" y="0" width="40" height="40" rx="10" fill="#15803D"/>
+  <path d="M23 6.5 11.5 22.5H19.5L17 33.5 28.5 17.5H20.5Z" fill="#FAF7F2"/>
+  <circle cx="31" cy="31" r="2.75" fill="#F59E0B"/>
+</svg>

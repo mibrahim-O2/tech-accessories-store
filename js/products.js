@@ -32,6 +32,7 @@ const STORE = {
      image       – path inside /images
      alt         – alt text for the product image (accessibility)
      tag         – small label shown on the card
+     category    – filter group (must match a key in CATEGORIES below)
    --------------------------------------------------------------------- */
 const PRODUCTS = [
   {
@@ -42,8 +43,9 @@ const PRODUCTS = [
     price: 3500,
     cost: 2500,
     image: "images/earbuds.png",
-    alt: "White wireless earbuds sitting in their open charging case",
+    alt: "Black wireless earbuds with one bud resting beside the open charging case",
     tag: "Best seller",
+    category: "audio",
   },
   {
     id: "phone-cover",
@@ -55,6 +57,7 @@ const PRODUCTS = [
     image: "images/phone-cover.png",
     alt: "Navy silicone phone cover shown from the back",
     tag: "Budget pick",
+    category: "protection",
   },
   {
     id: "charger-20w",
@@ -64,8 +67,9 @@ const PRODUCTS = [
     price: 1800,
     cost: 1250,
     image: "images/charger-20w.png",
-    alt: "White 20W fast charging adapter with a USB-C cable",
+    alt: "White 20W USB-C wall charger next to a coiled white braided USB-C cable",
     tag: "Fast charging",
+    category: "charging",
   },
   {
     id: "laptop-stand",
@@ -75,9 +79,24 @@ const PRODUCTS = [
     price: 2800,
     cost: 2000,
     image: "images/laptop-stand.png",
-    alt: "Silver aluminum laptop stand raising a laptop on a desk",
+    alt: "Silver adjustable aluminum laptop stand holding an open laptop",
     tag: "Study setup",
+    category: "workspace",
   },
+];
+
+
+/* ---------------------------------------------------------------------
+   CATEGORIES
+   Used by the catalog filter bar. "icon" is a name from js/icons.js.
+   The order here is the order of the filter buttons.
+   --------------------------------------------------------------------- */
+const CATEGORIES = [
+  { id: "all", label: "All", icon: "grid" },
+  { id: "audio", label: "Audio", icon: "headphones" },
+  { id: "protection", label: "Protection", icon: "smartphone" },
+  { id: "charging", label: "Charging", icon: "plug" },
+  { id: "workspace", label: "Workspace", icon: "laptop" },
 ];
 
 

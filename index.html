@@ -3,18 +3,24 @@
   =====================================================================
   VoltEdge — index.html (Home page)
   ---------------------------------------------------------------------
-  Landing page of the store. Phase 1 shows a preview of the design
-  system (colors, buttons, cards, badges). Phase 2 replaces it with the
-  hero, trust badges, featured products and student-discount banner.
-  The header and footer are injected by js/main.js.
+  Landing page of the store. Sections, top to bottom:
+    1. Hero          – headline, short pitch, "Shop now" button,
+                       2x2 collage of the four products
+    2. Trust badges  – Free delivery, 1-year warranty, Cash on delivery
+    3. Featured      – product strip rendered from js/products.js
+    4. Student offer – student-discount banner with promo code
+  Header, footer and icons (<span data-icon>) are filled by js/main.js.
   =====================================================================
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VoltEdge — Smart tech, student-friendly prices</title>
-  <meta name="description" content="VoltEdge: affordable tech accessories for students in Pakistan — earbuds, chargers, phone covers and laptop stands." />
+  <title>VoltEdge | Smart tech, student-friendly prices</title>
+  <meta name="description" content="VoltEdge: affordable tech accessories for students in Pakistan. Earbuds, chargers, phone covers and laptop stands." />
+
+  <!-- Favicon: the VoltEdge logo mark -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 
   <!-- Inter font (falls back to the system font stack if offline) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,84 +36,120 @@
   <header id="site-header"></header>
 
   <main>
-    <!-- Page intro -->
-    <section class="page-hero">
-      <div class="container">
-        <span class="eyebrow">Phase 1 · Design system</span>
-        <h1>VoltEdge</h1>
-        <p>Smart tech, student-friendly prices. This preview shows the shared
-          colors, buttons, cards and badges used across every page. The full
-          home page arrives in Phase 2.</p>
-      </div>
-    </section>
 
-    <!-- Color palette preview -->
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="section-head">
-          <h2>Color palette</h2>
-          <p>Warm cream, charcoal, forest green and amber — no blue, pink or purple.</p>
+    <!-- =============================================================
+         1. HERO
+         Left: headline, pitch, buttons. Right: product collage.
+         ============================================================= -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><span data-icon="zap" data-size="16"></span>New semester essentials</span>
+          <h1>Smart tech, <span class="highlight">student-friendly</span> prices.</h1>
+          <p class="hero-pitch">
+            Earbuds, fast chargers, phone covers and laptop stands chosen for
+            student life. Every item is tested, covered by a 1-year warranty and
+            delivered free anywhere in Pakistan.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="catalog.html">Shop now <span data-icon="arrowRight" data-size="20"></span></a>
+            <a class="btn btn-outline btn-lg" href="#student-offer">Student offer</a>
+          </div>
+          <p class="hero-note">Prices start from <strong>Rs. 800</strong> &middot; Pay cash on delivery</p>
         </div>
-        <div class="swatches">
-          <div class="swatch"><div class="swatch-color" style="background: var(--bg);"></div><div class="swatch-label">Background<br /><code>#FAF7F2</code></div></div>
-          <div class="swatch"><div class="swatch-color" style="background: var(--surface);"></div><div class="swatch-label">Surface<br /><code>#FFFFFF</code></div></div>
-          <div class="swatch"><div class="swatch-color" style="background: var(--ink);"></div><div class="swatch-label">Ink<br /><code>#1C1917</code></div></div>
-          <div class="swatch"><div class="swatch-color" style="background: var(--muted);"></div><div class="swatch-label">Muted<br /><code>#78716C</code></div></div>
-          <div class="swatch"><div class="swatch-color" style="background: var(--primary);"></div><div class="swatch-label">Primary<br /><code>#15803D</code></div></div>
-          <div class="swatch"><div class="swatch-color" style="background: var(--primary-dark);"></div><div class="swatch-label">Primary dark<br /><code>#14532D</code></div></div>
-          <div class="swatch"><div class="swatch-color" style="background: var(--accent);"></div><div class="swatch-label">Accent<br /><code>#F59E0B</code></div></div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Buttons & badges preview -->
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="section-head">
-          <h2>Buttons &amp; badges</h2>
-        </div>
-        <div class="demo-row">
-          <a class="btn btn-primary" href="catalog.html">Shop now</a>
-          <a class="btn btn-outline" href="business.html">Business plan</a>
-          <button class="btn btn-accent" type="button">Student offer</button>
-          <span class="badge">🚚 Free delivery</span>
-          <span class="badge badge-accent">Best seller</span>
-          <span class="price">Rs. 1,800</span>
+        <!-- Product collage (the four store products) -->
+        <div class="hero-collage">
+          <img src="images/earbuds.png" alt="Black wireless earbuds with their open charging case" width="400" height="400" />
+          <img src="images/charger-20w.png" alt="White 20W USB-C charger with a braided cable" width="400" height="400" />
+          <img src="images/laptop-stand.png" alt="Silver aluminum laptop stand holding a laptop" width="400" height="400" />
+          <img src="images/phone-cover.png" alt="Navy silicone phone cover" width="400" height="400" />
         </div>
       </div>
     </section>
 
-    <!-- Card preview -->
-    <section class="section" style="padding-top: 0;">
+    <!-- =============================================================
+         2. TRUST BADGES
+         Three store promises, each icon in a tinted circle.
+         ============================================================= -->
+    <section class="trust" aria-label="Why shop with VoltEdge">
       <div class="container">
-        <div class="section-head">
-          <h2>Cards</h2>
-        </div>
-        <div class="grid">
-          <article class="card card-hover">
-            <span class="badge">Card</span>
-            <h3 style="margin-top: 1rem;">Rounded corners</h3>
-            <p class="muted">White surface, warm border and a soft shadow that lifts on hover.</p>
-          </article>
-          <article class="card card-hover">
-            <span class="badge badge-accent">Spacing</span>
-            <h3 style="margin-top: 1rem;">Generous spacing</h3>
-            <p class="muted">An 8px-based spacing scale keeps every section consistent.</p>
-          </article>
-          <article class="card card-hover">
-            <span class="badge">Responsive</span>
-            <h3 style="margin-top: 1rem;">Mobile ready</h3>
-            <p class="muted">Grids reflow and the nav collapses into a menu on phones.</p>
-          </article>
+        <div class="card trust-grid">
+          <div class="trust-item">
+            <span class="icon-circle"><span data-icon="truck" data-size="22"></span></span>
+            <div>
+              <h3>Free delivery</h3>
+              <p>On every order, all over Pakistan</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="icon-circle"><span data-icon="shield" data-size="22"></span></span>
+            <div>
+              <h3>1-year warranty</h3>
+              <p>Free replacement if anything fails</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="icon-circle"><span data-icon="wallet" data-size="22"></span></span>
+            <div>
+              <h3>Cash on delivery</h3>
+              <p>Pay when it arrives at your door</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- =============================================================
+         3. FEATURED PRODUCTS STRIP
+         Cards are generated by renderFeatured() in js/main.js from the
+         PRODUCTS list in js/products.js.
+         ============================================================= -->
+    <section class="section" style="padding-top: var(--space-3);">
+      <div class="container">
+        <div class="section-head section-head-row">
+          <div class="heading-with-icon">
+            <span class="icon-circle"><span data-icon="sparkles" data-size="22"></span></span>
+            <div>
+              <span class="eyebrow">Featured</span>
+              <h2>Student favourites</h2>
+              <p>Our four best-selling accessories, ready for campus.</p>
+            </div>
+          </div>
+          <a class="btn btn-outline" href="catalog.html">See full catalog <span data-icon="arrowRight" data-size="18"></span></a>
+        </div>
+        <div class="featured-strip" id="featured-products"></div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         4. STUDENT DISCOUNT BANNER
+         ============================================================= -->
+    <section class="section section-tight-top" id="student-offer">
+      <div class="container">
+        <div class="student-banner">
+          <div class="discount-circle" aria-hidden="true">
+            <div><strong>10%</strong><span>OFF</span></div>
+          </div>
+          <div>
+            <span class="eyebrow"><span data-icon="graduationCap" data-size="16"></span>Student offer</span>
+            <h2>Student discount: 10% off everything</h2>
+            <p>Show a valid university or college ID at delivery and save 10% on
+              any order. Works on top of free delivery.</p>
+            <span class="promo-code"><span data-icon="tag" data-size="16"></span>STUDENT10</span>
+          </div>
+          <a class="btn btn-accent btn-lg" href="catalog.html">Claim offer <span data-icon="arrowRight" data-size="20"></span></a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Shared footer (filled by main.js) -->
   <footer id="site-footer"></footer>
 
-  <!-- Scripts: product data first, then shared behaviour -->
+  <!-- Scripts: icons, product data, then shared behaviour -->
+  <script src="js/icons.js"></script>
   <script src="js/products.js"></script>
   <script src="js/main.js"></script>
 </body>

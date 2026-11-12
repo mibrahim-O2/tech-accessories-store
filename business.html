@@ -5,16 +5,19 @@
   ---------------------------------------------------------------------
   Presents the store's business plan: marketing strategy, imaging plan,
   products worth table, expected revenue (with a pure-CSS bar chart)
-  and area of success. Built in Phase 4 — Phase 1 is a placeholder.
-  The header and footer are injected by js/main.js.
+  and area of success. Built in Phase 4; for now it is a placeholder.
+  Header, footer and icons (<span data-icon>) are filled by js/main.js.
   =====================================================================
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Business Plan — VoltEdge</title>
+  <title>Business Plan | VoltEdge</title>
   <meta name="description" content="VoltEdge business plan: marketing strategy, imaging plan, product margins and expected revenue." />
+
+  <!-- Favicon: the VoltEdge logo mark -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 
   <!-- Inter font (falls back to the system font stack if offline) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,15 +35,18 @@
   <main>
     <!-- Page intro -->
     <section class="page-hero">
-      <div class="container">
-        <span class="eyebrow">Strategy</span>
-        <h1>Business plan</h1>
-        <p>How VoltEdge will market, photograph, price and grow.</p>
+      <div class="container heading-with-icon">
+        <span class="icon-circle icon-circle-lg"><span data-icon="briefcase" data-size="26"></span></span>
+        <div>
+          <span class="eyebrow">Strategy</span>
+          <h1>Business plan</h1>
+          <p>How VoltEdge will market, photograph, price and grow.</p>
+        </div>
       </div>
     </section>
 
     <!-- Business plan sections (Phase 4) -->
-    <section class="section" style="padding-top: 0;">
+    <section class="section section-tight-top">
       <div class="container">
         <div class="placeholder">Business plan sections coming in Phase 4.</div>
       </div>
@@ -50,7 +56,8 @@
   <!-- Shared footer (filled by main.js) -->
   <footer id="site-footer"></footer>
 
-  <!-- Scripts: product data first, then shared behaviour -->
+  <!-- Scripts: icons, product data, then shared behaviour -->
+  <script src="js/icons.js"></script>
   <script src="js/products.js"></script>
   <script src="js/main.js"></script>
 </body>

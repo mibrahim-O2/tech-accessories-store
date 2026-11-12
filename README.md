@@ -26,11 +26,22 @@ tech-accessories-store/
 ├── css/
 │   └── style.css     Design system: colors, buttons, cards, header, footer
 ├── js/
-│   ├── products.js   ALL product data + price/margin helpers (single source)
-│   └── main.js       Shared header/footer, mobile menu, cart counter
-├── images/           Product photos (earbuds, phone cover, charger, laptop stand)
+│   ├── icons.js      All SVG icons (Lucide style) + icon(name, size) helper
+│   ├── products.js   ALL product data, categories, price/margin helpers
+│   ├── main.js       Logo, shared header/footer, mobile menu, cart + mini-cart
+│   └── catalog.js    Catalog page: product cards, filter bar, add to cart
+├── images/
+│   ├── logo.svg      VoltEdge logo (mark + wordmark)
+│   ├── favicon.svg   Browser-tab icon (logo mark only)
+│   └── *.png         Product photos (earbuds, phone cover, charger, laptop stand)
 └── README.md
 ```
+
+Every page loads its scripts in this order:
+`icons.js`, then `products.js`, then `main.js` (and `catalog.js` on the catalog page).
+
+**Design rules:** no emoji (all icons are inline SVG from `js/icons.js`),
+no blue, pink or purple, and every color comes from the variables in `css/style.css`.
 
 ## Products
 

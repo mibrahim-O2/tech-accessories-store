@@ -1,0 +1,21 @@
+<!--
+  VoltEdge — logo.svg
+  Full logo: rounded-square green mark with a cream geometric lightning
+  bolt and a small amber accent dot, plus the "VoltEdge" wordmark
+  ("Volt" charcoal, "Edge" forest green, Inter 700, tight tracking).
+  The same artwork is drawn inline by js/main.js (logoSVG) for the
+  header and footer.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 40" width="168" height="40" role="img" aria-label="VoltEdge">
+  <!-- Mark: rounded square -->
+  <rect x="0" y="0" width="40" height="40" rx="10" fill="#15803D"/>
+  <!-- Mark: geometric lightning bolt -->
+  <path d="M23 6.5 11.5 22.5H19.5L17 33.5 28.5 17.5H20.5Z" fill="#FAF7F2"/>
+  <!-- Mark: amber accent dot -->
+  <circle cx="31" cy="31" r="2.75" fill="#F59E0B"/>
+  <!-- Wordmark -->
+  <text x="50" y="28" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif"
+        font-size="23" font-weight="700" letter-spacing="-0.6">
+    <tspan fill="#1C1917">Volt</tspan><tspan fill="#15803D">Edge</tspan>
+  </text>
+</svg>
