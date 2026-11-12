@@ -106,6 +106,41 @@ const icons = {
     '<path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/>' +
     '<path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/>',
 
+  /* Megaphone — Meta Ads (business plan) */
+  megaphone: '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
+
+  /* Video camera — TikTok unboxing videos (business plan) */
+  video:
+    '<path d="m16 13 5.22 3.48a.5.5 0 0 0 .78-.42V7.87a.5.5 0 0 0-.75-.43L16 10.5"/>' +
+    '<rect x="2" y="6" width="14" height="12" rx="2"/>',
+
+  /* Camera — imaging plan heading */
+  camera:
+    '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>' +
+    '<circle cx="12" cy="13" r="3"/>',
+
+  /* Picture — white-background product shots */
+  image:
+    '<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/>' +
+    '<path d="m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21"/>',
+
+  /* Bar chart — expected revenue heading */
+  barChart:
+    '<path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>',
+
+  /* Two people — target audience (university students) */
+  users:
+    '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>' +
+    '<path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+
+  /* Circular arrows — repeat purchases */
+  repeat:
+    '<path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/>' +
+    '<path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>',
+
+  /* Target — area of success heading */
+  target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+
   /* Laptop — "Workspace" category */
   laptop:
     '<path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/>',

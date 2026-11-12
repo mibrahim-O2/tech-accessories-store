@@ -29,7 +29,8 @@ tech-accessories-store/
 │   ├── icons.js      All SVG icons (Lucide style) + icon(name, size) helper
 │   ├── products.js   ALL product data, categories, price/margin helpers
 │   ├── main.js       Logo, shared header/footer, mobile menu, cart + mini-cart
-│   └── catalog.js    Catalog page: product cards, filter bar, add to cart
+│   ├── catalog.js    Catalog page: product cards, filter bar, add to cart
+│   └── business.js   Business plan: margins table, revenue figures, CSS bar chart
 ├── images/
 │   ├── logo.svg      VoltEdge logo (mark + wordmark)
 │   ├── favicon.svg   Browser-tab icon (logo mark only)
@@ -38,7 +39,7 @@ tech-accessories-store/
 ```
 
 Every page loads its scripts in this order:
-`icons.js`, then `products.js`, then `main.js` (and `catalog.js` on the catalog page).
+`icons.js`, then `products.js`, then `main.js` (plus `catalog.js` or `business.js` on those pages).
 
 **Design rules:** no emoji (all icons are inline SVG from `js/icons.js`),
 no blue, pink or purple, and every color comes from the variables in `css/style.css`.

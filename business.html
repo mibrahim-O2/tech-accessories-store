@@ -3,9 +3,16 @@
   =====================================================================
   VoltEdge — business.html (Business plan)
   ---------------------------------------------------------------------
-  Presents the store's business plan: marketing strategy, imaging plan,
-  products worth table, expected revenue (with a pure-CSS bar chart)
-  and area of success. Built in Phase 4; for now it is a placeholder.
+  The store's business plan in five numbered sections:
+    01 Marketing strategy  – Meta Ads, TikTok unboxing videos,
+                             student discounts
+    02 Imaging plan        – white-background product shots and desk
+                             lifestyle shots
+    03 Products worth      – table of cost, price, profit, margin
+                             (filled by js/business.js from products.js)
+    04 Expected revenue    – 80 orders x Rs. 1,800 per month, with a
+                             pure-CSS bar chart (sized by business.js)
+    05 Area of success     – university students, high repeat purchases
   Header, footer and icons (<span data-icon>) are filled by js/main.js.
   =====================================================================
 -->
@@ -40,15 +47,314 @@
         <div>
           <span class="eyebrow">Strategy</span>
           <h1>Business plan</h1>
-          <p>How VoltEdge will market, photograph, price and grow.</p>
+          <p>How VoltEdge will market, photograph, price and grow: from the
+            first ad to repeat customers.</p>
         </div>
       </div>
     </section>
 
-    <!-- Business plan sections (Phase 4) -->
-    <section class="section section-tight-top">
+    <!-- "On this page" jump links to each section -->
+    <nav class="container toc" aria-label="On this page">
+      <a href="#marketing">01 Marketing</a>
+      <a href="#imaging">02 Imaging</a>
+      <a href="#worth">03 Products worth</a>
+      <a href="#revenue">04 Revenue</a>
+      <a href="#success">05 Area of success</a>
+    </nav>
+
+    <!-- =============================================================
+         01. MARKETING STRATEGY
+         Three channels, each in its own card.
+         ============================================================= -->
+    <section class="section plan-section" id="marketing">
       <div class="container">
-        <div class="placeholder">Business plan sections coming in Phase 4.</div>
+        <div class="section-head heading-with-icon">
+          <span class="icon-circle"><span data-icon="megaphone" data-size="22"></span></span>
+          <div>
+            <span class="eyebrow">01 &middot; Marketing strategy</span>
+            <h2>Reach students where they scroll</h2>
+            <p>Three channels that work together: ads bring people in, videos
+              build trust, and the student discount turns them into buyers.</p>
+          </div>
+        </div>
+
+        <div class="plan-grid">
+          <!-- Meta Ads -->
+          <article class="card card-hover plan-card">
+            <span class="icon-circle"><span data-icon="megaphone" data-size="22"></span></span>
+            <h3>Meta Ads</h3>
+            <p class="muted">Facebook and Instagram ads aimed at students aged 18 to 25 in
+              major Pakistani cities.</p>
+            <ul class="check-list">
+              <li><span data-icon="check" data-size="16"></span>Interest targeting: gadgets, mobile phones, university life</li>
+              <li><span data-icon="check" data-size="16"></span>Carousel ads using our white-background product photos</li>
+              <li><span data-icon="check" data-size="16"></span>Retarget people who viewed the catalog but did not order</li>
+            </ul>
+          </article>
+
+          <!-- TikTok -->
+          <article class="card card-hover plan-card">
+            <span class="icon-circle"><span data-icon="video" data-size="22"></span></span>
+            <h3>TikTok unboxing videos</h3>
+            <p class="muted">Short, honest videos that show the product out of the box and
+              in real use.</p>
+            <ul class="check-list">
+              <li><span data-icon="check" data-size="16"></span>15 to 30 second unboxings of each product</li>
+              <li><span data-icon="check" data-size="16"></span>"Charge test" and "desk setup" videos that show results</li>
+              <li><span data-icon="check" data-size="16"></span>Work with student creators on campus</li>
+            </ul>
+          </article>
+
+          <!-- Student discounts -->
+          <article class="card card-hover plan-card">
+            <span class="icon-circle"><span data-icon="graduationCap" data-size="22"></span></span>
+            <h3>Student discounts</h3>
+            <p class="muted">10% off every order with a valid student ID, using the code
+              <strong class="code">STUDENT10</strong>.</p>
+            <ul class="check-list">
+              <li><span data-icon="check" data-size="16"></span>Shown on the home page and in every ad</li>
+              <li><span data-icon="check" data-size="16"></span>Works together with free delivery and cash on delivery</li>
+              <li><span data-icon="check" data-size="16"></span>Pushed hardest at the start of each semester</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         02. IMAGING PLAN
+         Left: white-background shots (done). Right: lifestyle shots
+         (planned shot list).
+         ============================================================= -->
+    <section class="section plan-section" id="imaging">
+      <div class="container">
+        <div class="section-head heading-with-icon">
+          <span class="icon-circle"><span data-icon="camera" data-size="22"></span></span>
+          <div>
+            <span class="eyebrow">02 &middot; Imaging plan</span>
+            <h2>Two kinds of photos for every product</h2>
+            <p>Clean studio shots to show exactly what you get, and desk lifestyle
+              shots to show how it fits into student life.</p>
+          </div>
+        </div>
+
+        <div class="imaging-grid">
+          <!-- White-background product shots -->
+          <article class="card imaging-card">
+            <div class="imaging-head">
+              <span class="icon-circle icon-circle-sm"><span data-icon="image" data-size="20"></span></span>
+              <h3>White-background product shots</h3>
+              <span class="badge">Done</span>
+            </div>
+            <div class="shot-grid">
+              <img src="images/earbuds.png" alt="Studio shot: black wireless earbuds and case on white" width="200" height="200" loading="lazy" />
+              <img src="images/phone-cover.png" alt="Studio shot: navy silicone phone cover on white" width="200" height="200" loading="lazy" />
+              <img src="images/charger-20w.png" alt="Studio shot: white 20W charger and cable on white" width="200" height="200" loading="lazy" />
+              <img src="images/laptop-stand.png" alt="Studio shot: silver laptop stand with laptop on white" width="200" height="200" loading="lazy" />
+            </div>
+            <ul class="check-list">
+              <li><span data-icon="check" data-size="16"></span>Square 1:1 images on a pure white background</li>
+              <li><span data-icon="check" data-size="16"></span>Used on the catalog, product cards and carousel ads</li>
+              <li><span data-icon="check" data-size="16"></span>Soft, even lighting so colours look true</li>
+            </ul>
+          </article>
+
+          <!-- Desk lifestyle shots -->
+          <article class="card imaging-card">
+            <div class="imaging-head">
+              <span class="icon-circle icon-circle-sm"><span data-icon="camera" data-size="20"></span></span>
+              <h3>Desk lifestyle shots</h3>
+              <span class="badge badge-accent">Planned</span>
+            </div>
+            <ol class="shot-list">
+              <li>
+                <strong>Study desk:</strong> earbuds beside a notebook and coffee,
+                laptop open in the background.
+              </li>
+              <li>
+                <strong>Hostel setup:</strong> laptop raised on the aluminum stand
+                with an external keyboard.
+              </li>
+              <li>
+                <strong>Bedside charge:</strong> 20W charger plugged in, phone
+                charging on a side table.
+              </li>
+              <li>
+                <strong>On campus:</strong> phone in the navy cover held in hand,
+                university building behind.
+              </li>
+            </ol>
+            <ul class="check-list">
+              <li><span data-icon="check" data-size="16"></span>Natural window light with warm tones that match the brand</li>
+              <li><span data-icon="check" data-size="16"></span>Used for Instagram posts and TikTok thumbnails</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         03. PRODUCTS WORTH
+         Rows are generated by renderWorthTable() in js/business.js.
+         ============================================================= -->
+    <section class="section plan-section" id="worth">
+      <div class="container">
+        <div class="section-head heading-with-icon">
+          <span class="icon-circle"><span data-icon="tag" data-size="22"></span></span>
+          <div>
+            <span class="eyebrow">03 &middot; Products worth</span>
+            <h2>Cost, price and margin per product</h2>
+            <p>Costs are estimates and will be replaced with confirmed supplier
+              prices. Margin = profit &divide; selling price.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="worth-table">
+            <caption class="sr-only">Cost, selling price, profit and margin for each product, in PKR</caption>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col" class="num">Cost</th>
+                <th scope="col" class="num">Price</th>
+                <th scope="col" class="num">Profit</th>
+                <th scope="col">Margin</th>
+              </tr>
+            </thead>
+            <tbody id="worth-body"></tbody>
+            <tfoot id="worth-foot"></tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         04. EXPECTED REVENUE
+         Numbers are filled by renderRevenue() in js/business.js into
+         elements marked data-fill="...". The bar chart is pure CSS:
+         each .bar gets a --h height from business.js.
+         ============================================================= -->
+    <section class="section plan-section" id="revenue">
+      <div class="container">
+        <div class="section-head heading-with-icon">
+          <span class="icon-circle"><span data-icon="barChart" data-size="22"></span></span>
+          <div>
+            <span class="eyebrow">04 &middot; Expected revenue</span>
+            <h2>About <span data-fill="revenue">Rs. 144,000</span> a month</h2>
+            <p>Based on a realistic first target of 80 orders a month at an
+              average order value of Rs. 1,800.</p>
+          </div>
+        </div>
+
+        <div class="revenue-grid">
+          <!-- Left: the formula and key figures -->
+          <div class="revenue-figures">
+            <div class="card formula">
+              <span class="formula-part"><strong data-fill="orders">80</strong><small>orders / month</small></span>
+              <span class="formula-op" aria-hidden="true">&times;</span>
+              <span class="formula-part"><strong data-fill="aov">Rs. 1,800</strong><small>avg. order</small></span>
+              <span class="formula-op formula-eq" aria-hidden="true">=</span>
+              <span class="formula-part formula-result"><strong data-fill="revenue">Rs. 144,000</strong><small>per month</small></span>
+            </div>
+
+            <div class="stat-grid">
+              <div class="card stat">
+                <small>Yearly revenue</small>
+                <strong data-fill="yearly">Rs. 1,728,000</strong>
+              </div>
+              <div class="card stat">
+                <small>Average margin</small>
+                <strong data-fill="avg-margin">31%</strong>
+              </div>
+              <div class="card stat">
+                <small>Product cost / month</small>
+                <strong data-fill="product-cost">&nbsp;</strong>
+              </div>
+              <div class="card stat">
+                <small>Gross profit / month</small>
+                <strong data-fill="gross-profit">&nbsp;</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: pure-CSS bar chart -->
+          <figure class="card chart-card">
+            <figcaption>
+              <h3>Monthly revenue breakdown (PKR)</h3>
+              <p class="muted">Gross profit uses the average product margin.</p>
+            </figcaption>
+            <div class="bar-chart">
+              <div class="bar" data-bar="revenue" data-label="Revenue" tabindex="0">
+                <span class="bar-value"></span>
+                <span class="bar-fill"></span>
+                <span class="bar-label">Revenue</span>
+              </div>
+              <div class="bar bar-muted" data-bar="cost" data-label="Product cost" tabindex="0">
+                <span class="bar-value"></span>
+                <span class="bar-fill"></span>
+                <span class="bar-label">Product cost</span>
+              </div>
+              <div class="bar" data-bar="profit" data-label="Gross profit" tabindex="0">
+                <span class="bar-value"></span>
+                <span class="bar-fill"></span>
+                <span class="bar-label">Gross profit</span>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         05. AREA OF SUCCESS
+         Two strengths, then the repeat-purchase loop.
+         ============================================================= -->
+    <section class="section plan-section" id="success">
+      <div class="container">
+        <div class="section-head heading-with-icon">
+          <span class="icon-circle"><span data-icon="target" data-size="22"></span></span>
+          <div>
+            <span class="eyebrow">05 &middot; Area of success</span>
+            <h2>Why this business can work</h2>
+            <p>A clear customer group and products that people buy again and again.</p>
+          </div>
+        </div>
+
+        <div class="success-grid">
+          <!-- University students -->
+          <article class="card success-card">
+            <span class="icon-circle icon-circle-lg"><span data-icon="users" data-size="26"></span></span>
+            <h3>University students</h3>
+            <p class="muted">Our main customers use their phones and laptops all day for
+              classes, assignments and entertainment, but have tight budgets.</p>
+            <ul class="check-list">
+              <li><span data-icon="check" data-size="16"></span>Prices from Rs. 800 fit a student budget</li>
+              <li><span data-icon="check" data-size="16"></span>Very active on Instagram and TikTok, where we advertise</li>
+              <li><span data-icon="check" data-size="16"></span>Word of mouth spreads fast in hostels and classes</li>
+            </ul>
+          </article>
+
+          <!-- High repeat purchases -->
+          <article class="card success-card">
+            <span class="icon-circle icon-circle-lg"><span data-icon="repeat" data-size="26"></span></span>
+            <h3>High repeat purchases</h3>
+            <p class="muted">Accessories wear out, get lost or need replacing when a
+              phone is upgraded, so happy customers come back.</p>
+            <ul class="check-list">
+              <li><span data-icon="check" data-size="16"></span>Covers and cables are replaced often</li>
+              <li><span data-icon="check" data-size="16"></span>A first cheap buy (cover) builds trust for a bigger one (earbuds)</li>
+              <li><span data-icon="check" data-size="16"></span>1-year warranty and cash on delivery keep trust high</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Repeat-purchase loop: four steps -->
+        <ol class="loop" aria-label="Repeat purchase loop">
+          <li><span class="loop-num">1</span><strong>Discover</strong><small>Sees a TikTok or Meta ad</small></li>
+          <li><span class="loop-num">2</span><strong>First order</strong><small>Low-risk buy with STUDENT10</small></li>
+          <li><span class="loop-num">3</span><strong>Daily use</strong><small>Product works, trust grows</small></li>
+          <li><span class="loop-num">4</span><strong>Comes back</strong><small>Buys again and tells friends</small></li>
+        </ol>
       </div>
     </section>
   </main>
@@ -56,9 +362,10 @@
   <!-- Shared footer (filled by main.js) -->
   <footer id="site-footer"></footer>
 
-  <!-- Scripts: icons, product data, then shared behaviour -->
+  <!-- Scripts: icons, product data, shared behaviour, then business page -->
   <script src="js/icons.js"></script>
   <script src="js/products.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/business.js"></script>
 </body>
 </html>
